@@ -151,9 +151,12 @@ io.on("connection", (socket)=>{
 
 /**
  * 3000番でサーバを起動する
+ * process.env.PORT は heroku 用
  */
-http.listen(process.env.PORT, ()=>{
-  console.log("listening on *:3000");
+
+const port = process.env.PORT || 3000;
+http.listen(port, ()=>{
+  console.log("listening on *:" + port);
 });
 
 
