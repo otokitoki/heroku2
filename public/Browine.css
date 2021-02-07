@@ -201,5 +201,11 @@ li{
   right: 0;
   overflow-x: hidden;
   text-align: center;
-  width: 100%;
+  width: 0;
+  transition: .5s;
+}
+
+/* メニューを開いた時 */
+nav.open-menu {
+  width: 40%;
 }
