@@ -153,3 +153,7 @@ li{
   font-size: 1em;
   border:none;
 }
+
+#frm-quit:focus{
+  outline:0;
+}
