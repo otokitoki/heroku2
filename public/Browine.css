@@ -178,3 +178,28 @@ li{
 #frm-quit:focus{
   outline:0;
 }
+
+
+/* メンバーリストのスライドメニューについてのcss*/
+/* ボタン */
+.btn-menu {
+  border: 1px solid #999;
+  background: transparent;
+  color: #fff;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+ 
+/* メニュー */
+.nav-item {
+  background: #0bd;
+  position: absolute;
+  z-index: 1;
+  top: 3.125rem;
+  right: 0;
+  overflow-x: hidden;
+  text-align: center;
+  width: 100%;
+}
