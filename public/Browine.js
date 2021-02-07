@@ -131,10 +131,7 @@ function postMessage(){
   //textareaの値を削除
   message.value = '';
   
-  //ページ最下部へ移動
-  var element = document.documentElement;
-  var bottom = element.scrollHeight - element.clientHeight;
-  window.scroll(0, bottom);
+  
 };
 
 /**
@@ -261,6 +258,10 @@ function addMessage(msg, is_me=false){
     span.innerText = msg.text;
     span.classList.add("span-me");
     li.appendChild(span)
+    //ページ最下部へ移動
+    var element = document.documentElement;
+    var bottom = element.scrollHeight - element.clientHeight;
+    window.scroll(0, bottom);
   }
   // それ以外の発言
   else{
