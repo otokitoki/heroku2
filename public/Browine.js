@@ -317,11 +317,13 @@ function addMemberList(token, name){
   const list = $("#memberlist");
   const li = document.createElement("li");
   li.setAttribute("id", `member-${token}`);
+  const span = document.createElement("span");
   if( token == IAM.token ){
-    li.innerHTML = `<span>${name}</span>`;
+    span.innerText = name;
+    li.appendChild(span);
   }
   else{
-    li.innerHTML = name;
+    li.innerText = name;
   }
 
   // リストの最後に追加
@@ -355,10 +357,10 @@ const nav = document.querySelector('nav');
 btn.addEventListener('click', () => {
   nav.classList.toggle('open-menu')
   
-  if (btn.innerHTML === '参加者一覧') {
-    btn.innerHTML = '閉じる';
+  if (btn.innerText === '参加者一覧') {
+    btn.innerText = '閉じる';
   } else {
-    btn.innerHTML = '参加者一覧';
+    btn.innerText = '参加者一覧';
   }
 });
 
