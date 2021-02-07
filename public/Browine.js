@@ -225,7 +225,7 @@ function gotoSTEP1(){
 
   // チャット内容を全て消す
   $("#txt-myname").value = "";     // 名前入力欄 STEP2
-  $("#myname").innerHTML = "";     // 名前表示欄 STEP3
+  //$("#myname").innerHTML = "";     // 名前表示欄 STEP3  ときが消しました。
   $("#message").value = "";            // 発言入力欄 STEP3
   $("#body").innerHTML = "";    // 発言リスト STEP3
   $("#memberlist").innerHTML = ""; // メンバーリスト STEP3
