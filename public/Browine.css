@@ -45,6 +45,16 @@ body {
 }
 
 
+.header-left{
+  float:left;  
+}
+
+
+.header-right{
+  float:right;
+}
+
+
 /* フッターの固定 */
 .footer-fixed{
   position: fixed;
