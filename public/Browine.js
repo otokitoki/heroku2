@@ -149,7 +149,7 @@ $("#frm-quit").addEventListener("click", (e)=>{
     socket.emit("quit", {token:IAM.token});
 
     // ボタンを無効にする
-    $("#frm-quit button").setAttribute("disabled", "disabled");
+    $("#frm-quit").setAttribute("disabled", "disabled");
   }
 });
 
@@ -163,10 +163,12 @@ socket.on("quit-result", (data)=>{
   }
   else{
     alert("退室できませんでした");
+    // ボタンを有効に戻す 
+    $("#frm-quit").removeAttribute("disabled");
   }
 
-  // ボタンを有効に戻す ????????????????????????????????????????????????
-  $("#frm-quit button").removeAttribute("disabled");
+  // ボタンを有効に戻す 上に移動しました
+  //$("#frm-quit").removeAttribute("disabled");
 });
 
 /**
