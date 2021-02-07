@@ -49,7 +49,6 @@ $("#frm-myname").addEventListener("submit", (e)=>{
   }
 
   // 名前をセット
-  $("#myname").innerHTML = myname.value;
   IAM.name = myname.value;
 
   // Socket.ioサーバへ送信
