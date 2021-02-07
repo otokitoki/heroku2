@@ -265,10 +265,20 @@ function addMessage(msg, is_me=false){
   // それ以外の発言
   else{
     li.classList.add("li-member");
+    const docFrag = document.createDocumentFragment();
+    const memberNameSpan = document.createElement("span");
+    memberNameSpan.classList.add("member-name");
+    memberNameSpan.innerText = name;
+    docFrag.appendChild(memberNameSpan);
+    
+    const br = document.createElement("br");
+    docFrag.appendChild(br);
+    
     const span = document.createElement("span");
-    span.innerHTML = "member>" + msg.text;
     span.classList.add("span-member");
-    li.appendChild(span)
+    span.innerText = msg.text;
+    docFrag.appendChild(span);
+    li.appendChild(docFrag);
   }
 
   // リストの最初に追加
