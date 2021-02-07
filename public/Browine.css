@@ -157,7 +157,8 @@ li{
   border:none;
   border-top: solid 2px #e1e3e8; 
   width:99%;
-  height:100%;
+  height: 133px;
+  padding-bottom: 0px;
 }
 
 
