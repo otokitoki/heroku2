@@ -248,10 +248,10 @@ function addMessage(msg, is_me=false){
 
   // マスターの発言
   if( msg.token === 0 ){
-    li.classList.add("li-member");
+    li.classList.add("li-master");
     const span = document.createElement("span");
-    span.innerHTML = "master>" + msg.text;
-    span.classList.add("span-member");
+    span.innerHTML = msg.text;
+    span.classList.add("span-master");
     li.appendChild(span)
   }
   // 自分の発言
