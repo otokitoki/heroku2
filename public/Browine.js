@@ -140,7 +140,7 @@ function postMessage(){
 /**
  * [イベント] 退室ボタンが押された
  */
-$("#frm-quit").addEventListener("submit", (e)=>{
+$("#frm-quit").addEventListener("click", (e)=>{
   // 規定の送信処理をキャンセル(画面遷移しないなど)
   e.preventDefault();
 
