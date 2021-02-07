@@ -250,7 +250,7 @@ function addMessage(msg, is_me=false){
   if( msg.token === 0 ){
     li.classList.add("li-member");
     const span = document.createElement("span");
-    span.innerHTML = "master>" + message.value;
+    span.innerHTML = "master>" + msg.text;
     span.classList.add("span-member");
     li.appendChild(span)
   }
@@ -258,7 +258,7 @@ function addMessage(msg, is_me=false){
   else if( is_me ){
     li.classList.add("li-me");
     const span = document.createElement("span");
-    span.innerHTML = message.value;
+    span.innerHTML = msg.text;
     span.classList.add("span-me");
     li.appendChild(span)
   }
@@ -266,7 +266,7 @@ function addMessage(msg, is_me=false){
   else{
     li.classList.add("li-member");
     const span = document.createElement("span");
-    span.innerHTML = "member>" + message.value;
+    span.innerHTML = "member>" + msg.text;
     span.classList.add("span-member");
     li.appendChild(span)
   }
