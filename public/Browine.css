@@ -109,6 +109,11 @@ li{
   text-align: left;
 }
 
+.member-name{
+  color:#fff;
+  font-size:0.8em;
+}
+
 .span-member{
   /* 改行を読めるようにする */
   white-space: pre-wrap;
