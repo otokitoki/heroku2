@@ -163,12 +163,10 @@ socket.on("quit-result", (data)=>{
   }
   else{
     alert("退室できませんでした");
-    // ボタンを有効に戻す 
-    $("#frm-quit").removeAttribute("disabled");
   }
 
-  // ボタンを有効に戻す 上に移動しました
-  //$("#frm-quit").removeAttribute("disabled");
+  // ボタンを有効に戻す 二度目の入室時に見えるようにするため
+  $("#frm-quit").removeAttribute("disabled");
 });
 
 /**
