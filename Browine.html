@@ -4,49 +4,63 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     
     <title>Browine</title>
-    <link rel="icon" type="image/png" href="static/images/Browine_icon.png">
-    <link rel="stylesheet" media="all" href="static/css/Browine.css"/>
-    <script src="static/js/Browine.js" defer></script>
+    <link rel="icon" type="image/png" href="Browine_icon.png">
+    <link rel="stylesheet" media="all" href="Browine.css"/>
+    <script src="Browine.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="util.js" defer></script>
   </head>
 
   <body>
-     <div class="header-fixed">
-       <div class="header-bk">
-         <div class="header">Browine</div>
-       </div>
-     </div>
-     
-    <div class="body-bk">
-      <div class="body" id="body">
-        <li class="li-me"><span class="span-me">aaaaaaaaaaaaaa</span></li>
-        <li class="li-member"><span class="span-member">cccaaaaa</span></li>
-        <li class="li-member"><span class="span-member">aaa</span></li>
-        <li class="li-member"><span class="span-member">aaa</span></li>
-        <li class="li-member"><span class="span-member">aaa</span></li>
-        <li class="li-me"><span class="span-me">ccc</span></li>
-        <li class="li-member"><span class="span-member">aaa</span></li>
-        <li class="li-member"><span class="span-member">aaa</span></li>
-        <li class="li-me"><span class="span-me">ccc</span></li>
-        <li class="li-me"><span class="span-me">ccc</span></li>
-        <li class="li-me"><span class="span-me">ccc</span></li>
-        <li class="li-me"><span class="span-me">ccc</span></li>
-        <li class="li-me"><span class="span-me">ccc</span></li>
-        <li class="li-me"><span class="span-me">ccc</span></li>
-        <li class="li-me"><span class="span-me">ccc</span></li>
-        <li class="li-me"><span class="span-me">dddaa</span></li>
+    <!-- メンバー一覧 -->
+    <ul id="memberlist" style="display:none;"></ul>
+    
+    <!-- STEP1. 接続中 -->
+    <section id="nowconnecting">
+      ...サーバに接続中
+    </section>
+    <!-- /接続中 -->
+    
+    <!-- STEP2. 名前を入力 -->
+    <section id="inputmyname">
+      <p>あなたの名前を入力してください</p>
+      <form id="frm-myname" autocomplete="off">
+        <input type="text" id="txt-myname">
+        <button>入室</button>
+      </form>
+    </section>
+    <!-- /名前を入力 -->
+    
+    <!-- STEP3. チャット開始 -->
+    <section id="chat">
+      <div class="header-fixed">
+        <div class="header-bk">
+          <div class="header">Browine</div>
+          <!-- ログアウト -->
+          <form id="frm-quit">
+            <button>退室する</button>
+          </form>
+        </div>
       </div>
-    </div>
-     <div class="footer-fixed">
-       <div class="footer-bk">
-         <div class="footer">
-           <div class="footer-right">
-              <img src="static/images/post_icon.png" width="30px" height="30px" id="post_img">
-           </div>
-           <div class="footer-bottom">
-              <textarea class="textarea-form" id="message">・・・</textarea>
-           </div>
-         </div>
-       </div>
-     </div>
+
+      <div class="body-bk">
+        <div class="body" id="body">
+          <li class="li-me"><span class="span-me">aaaaaaaaaaaaaa</span></li>
+          <li class="li-member"><span class="span-member">cccaaaaa</span></li>
+        </div>
+      </div>
+      <div class="footer-fixed">
+        <div class="footer-bk">
+          <div class="footer">
+            <div class="footer-right">
+               <img src="post_icon.png" width="30px" height="30px" id="post_img">
+            </div>
+            <div class="footer-bottom">
+               <textarea class="textarea-form" id="message"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
