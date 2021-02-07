@@ -105,7 +105,7 @@ li{
   text-align: left;
 }
 
-.span-li{
+.li-member{
   text-align: left;
 }
 
@@ -117,6 +117,22 @@ li{
   padding:4px 6px;
   display: inline-block;
   text-align: left;
+}
+
+.li-master{
+  text-align: center;
+}
+
+.span-master{
+  /* 改行を読めるようにする */
+  white-space: pre-wrap;
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 10px;
+  padding:6px 15px;
+  display: inline-block;
+  text-align: center;
+  color:#fff;
+  font-size:0.75em;
 }
 
 .textarea-form{
