@@ -124,7 +124,7 @@ function postMessage(){
   }
   
   // Socket.ioサーバへ送信
-  socket.emit("post", {text: msg.value, token:IAM.token});
+  socket.emit("post", {text: message.value, token:IAM.token});
   
 
   
