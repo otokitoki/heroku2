@@ -12,9 +12,6 @@
   </head>
 
   <body>
-    <!-- メンバー一覧 -->
-    <ul id="memberlist" style="display:none;"></ul>
-    
     <!-- STEP1. 接続中 -->
     <section id="nowconnecting">
       ...サーバに接続中
@@ -37,7 +34,13 @@
         <div class="header-bk">
           <!-- ログアウト 兼　ヘッダー-->
           <div class="header"><button id="frm-quit">＜</button>Browine</div>
-          
+          <div class="nav-box">
+            <button class="btn-menu">メニュー</button>
+            <!-- メンバー一覧 -->
+            <nav class="nav-item">
+              <ul id="memberlist"></ul>
+            </nav>
+          </div>
         </div>
       </div>
 
