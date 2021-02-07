@@ -349,3 +349,17 @@ function removeMemberList(token){
   // 内部変数から削除
   delete MEMBER[token];
 }
+
+//メンバーのスライドメニューについてのjs
+const btn = document.querySelector('.btn-menu');
+const nav = document.querySelector('nav');
+ 
+btn.addEventListener('click', () => {
+  nav.classList.toggle('open-menu')
+  
+  if (btn.innerHTML === '参加者一覧') {
+    btn.innerHTML = '閉じる';
+  } else {
+    btn.innerHTML = '参加者一覧';
+  }
+});
