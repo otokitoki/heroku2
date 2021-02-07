@@ -194,6 +194,7 @@ socket.on("member-post", (msg)=>{
   if( IAM.is_join ){
     const is_me = (msg.token === IAM.token);
     addMessage(msg, is_me);
+    is_me && windowScrollBottom();
   }
 });
 
@@ -258,8 +259,6 @@ function addMessage(msg, is_me=false){
     span.innerText = msg.text;
     span.classList.add("span-me");
     li.appendChild(span)
-    //ページ最下部へ移動
-    windowScrollBottom();
   }
   // それ以外の発言
   else{
