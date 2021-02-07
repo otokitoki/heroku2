@@ -250,7 +250,7 @@ function addMessage(msg, is_me=false){
   if( msg.token === 0 ){
     li.classList.add("li-master");
     const span = document.createElement("span");
-    span.innerHTML = msg.text;
+    span.innerText = msg.text;
     span.classList.add("span-master");
     li.appendChild(span)
   }
@@ -258,7 +258,7 @@ function addMessage(msg, is_me=false){
   else if( is_me ){
     li.classList.add("li-me");
     const span = document.createElement("span");
-    span.innerHTML = msg.text;
+    span.innerText = msg.text;
     span.classList.add("span-me");
     li.appendChild(span)
   }
