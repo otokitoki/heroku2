@@ -3,6 +3,20 @@ body {
   background-color: #738fb3;  
 }
 
+/*-------------------------
+ * STEP2
+ *-------------------------*/
+#inputmyname{
+  display:none;
+}
+
+/*-------------------------
+ * STEP3
+ *-------------------------*/
+#chat{
+  display:none;
+}
+
 
 /* ヘッダーの固定 */
 .header-fixed{
