@@ -259,9 +259,7 @@ function addMessage(msg, is_me=false){
     span.classList.add("span-me");
     li.appendChild(span)
     //ページ最下部へ移動
-    var element = document.documentElement;
-    var bottom = element.scrollHeight - element.clientHeight;
-    window.scroll(0, bottom);
+    windowScrollBottom();
   }
   // それ以外の発言
   else{
@@ -364,3 +362,10 @@ btn.addEventListener('click', () => {
     btn.innerHTML = '参加者一覧';
   }
 });
+
+//ページ最下部へ移動
+function windowScrollBottom(){
+  var element = document.documentElement;
+  var bottom = element.scrollHeight - element.clientHeight;
+  window.scroll(0, bottom);
+}
