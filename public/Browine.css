@@ -192,6 +192,7 @@ li{
 
 /* メンバーリストのスライドメニューについてのcss*/
 /* ボタン */
+/*
 .btn-menu {
   border: 1px solid #999;
   background: transparent;
@@ -201,8 +202,9 @@ li{
   cursor: pointer;
   line-height: 1;
 }
- 
+*/
 /* メニュー */
+/*
 .nav-item {
   background: #0bd;
   position: absolute;
@@ -214,8 +216,11 @@ li{
   width: 0;
   transition: .5s;
 }
+*/
 
 /* メニューを開いた時 */
+/*
 nav.open-menu {
   width: 40%;
 }
+*/
