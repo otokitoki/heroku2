@@ -52,6 +52,10 @@ app.get("/:file", (req, res)=>{
   res.sendFile(DOCUMENT_ROOT + "/" + req.params.file);
 });
 
+app.get("/notify", (req, res)=>{
+  res.sendFile(DOCUMENT_ROOT + "/notify.html");
+});
+
 
 //-----------------------------------------------
 // Socket.io
