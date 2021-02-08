@@ -52,7 +52,7 @@ app.get("/:file", (req, res)=>{
   res.sendFile(DOCUMENT_ROOT + "/" + req.params.file);
 });
 
-app.get("/notify", (req, res)=>{
+app.get("/notify.html", (req, res)=>{
   res.sendFile(DOCUMENT_ROOT + "/notify.html");
 });
 
