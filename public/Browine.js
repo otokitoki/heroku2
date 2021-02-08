@@ -194,7 +194,8 @@ socket.on("member-post", (msg)=>{
   if( IAM.is_join ){
     const is_me = (msg.token === IAM.token);
     addMessage(msg, is_me);
-    is_me && windowScrollBottom();
+    // 誰かが発言したら一番下へ
+    windowScrollBottom();
   }
 });
 
