@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"></script>
+  </head>
+
+  <body>
+    <h1>hello!</h1>
+    <button id="click">click</button>
+    <script>
+      Push.Permission.request();
+
+      document.querySelector("#click").addEventListener("click",()=>{
+        Push.create("こんにちは！", {
+          body: "更新をお知らせします！",
+          timeout: 8000, // 通知が消えるタイミング
+          onClick: function () {
+            // 通知がクリックされた場合の設定
+            console.log(this);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
