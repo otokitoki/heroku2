@@ -75,10 +75,11 @@ socket.on("join-result", (data)=>{
       if( ! (cur.token in MEMBER) ){
         addMemberList(cur.token, cur.name);
       }
+    
+    }
     //プッシュ通知の許可
     Push.Permission.request();
-    }
-
+    
     // 表示を切り替える
     $("#inputmyname").style.display = "none";   // 名前入力を非表示
     $("#chat").style.display = "block";         // チャットを表示
