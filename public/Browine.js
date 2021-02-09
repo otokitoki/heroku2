@@ -281,9 +281,9 @@ function addMessage(msg, is_me=false){
     docFrag.appendChild(span);
     li.appendChild(docFrag);
     //通知
-    if(){
+    if(Push.Permission.has()){
       Push.create(name, {
-        icon: Browine_icon.png,
+        icon: "Browine_icon.png",
         body: msg.text,
         timeout: 8000, // 通知が消えるタイミング
         onClick: function () {
