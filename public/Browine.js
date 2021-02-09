@@ -75,6 +75,8 @@ socket.on("join-result", (data)=>{
       if( ! (cur.token in MEMBER) ){
         addMemberList(cur.token, cur.name);
       }
+    //プッシュ通知の許可
+    Push.Permission.request();
     }
 
     // 表示を切り替える
@@ -278,6 +280,18 @@ function addMessage(msg, is_me=false){
     span.innerText = msg.text;
     docFrag.appendChild(span);
     li.appendChild(docFrag);
+    //通知
+    if(){
+      Push.create(name, {
+        icon: Browine_icon.png,
+        body: msg.text,
+        timeout: 8000, // 通知が消えるタイミング
+        onClick: function () {
+          // 通知がクリックされた場合の設定
+          console.log(this);
+        }
+      });
+    }
   }
 
   // リストの最初に追加
