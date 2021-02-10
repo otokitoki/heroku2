@@ -283,7 +283,8 @@ function addMessage(msg, is_me=false){
     li.appendChild(docFrag);
     //通知
     if(Push.Permission.has()){
-      Push.create(name, {
+      console.log(name)
+      Push.create(name || "不明なメンバー", {
         icon: "Browine_icon.png",
         body: msg.text,
         timeout: 8000, // 通知が消えるタイミング
