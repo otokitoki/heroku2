@@ -11,6 +11,8 @@ const crypto = require("crypto");
 const app  = require("express")();
 const http = require("http").createServer(app);
 const io   = require("socket.io")(http);
+require('date-utils');
+
 
 //-----------------------------------------------
 // 定数
@@ -114,12 +116,14 @@ io.on("connection", (socket)=>{
     //--------------------------
     // トークンが正しければ
     //--------------------------
+    let dt = new Date();
+    let dtHM = dt.toFormat("HH24:MI");
+    data.time = dtHM;
     if( authToken(socket.id, data.token) ){
       // 本人に通知
       io.to(socket.id).emit("member-post", data);
-
       // 本人以外に通知
-      socket.broadcast.emit("member-post", {text:data.text, token:MEMBER[socket.id].count});
+      socket.broadcast.emit("member-post", {text:data.text , time:data.time , token:MEMBER[socket.id].count});
     }
 
     // トークンが誤っていた場合は無視する
@@ -141,6 +145,7 @@ io.on("connection", (socket)=>{
 
       // 削除
       delete MEMBER[socket.id];
+      socket.disconnect();
     }
     //--------------------------
     // トークンが誤っていた場合
@@ -149,6 +154,7 @@ io.on("connection", (socket)=>{
       // 本人にNG通知
       io.to(socket.id).emit("quit-result", {status: false});
     }
+    
   });
 
 });

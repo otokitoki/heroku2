@@ -219,7 +219,13 @@ li{
   transition: .5s;
 }
 
-
+/* 投稿時刻 */
+.time{
+  vertical-align: bottom;
+  font-size: 0.75em;
+  color: rgba(255,255,255,0.6);
+  margin:0 4px;
+}
 /* メニューを開いた時 */
 
 nav.open-menu {

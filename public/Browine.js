@@ -160,6 +160,7 @@ $("#frm-quit").addEventListener("click", (e)=>{
 socket.on("quit-result", (data)=>{
   if( data.status ){
     gotoSTEP1();
+    
   }
   else{
     alert("退室できませんでした");
@@ -176,6 +177,8 @@ socket.on("member-join", (data)=>{
   if( IAM.is_join ){
     addMessageFromMaster(`${data.name}さんが入室しました`);
     addMemberList(data.token, data.name);
+    // 現在の人数を増やす
+    memberCountChange();
   }
 });
 
@@ -187,6 +190,8 @@ socket.on("member-quit", (data)=>{
     const name = MEMBER[data.token];
     addMessageFromMaster(`${name}さんが退室しました`);
     removeMemberList(data.token);
+    // 現在の人数を減らす
+    memberCountChange();
   }
 });
 
@@ -240,7 +245,7 @@ function gotoSTEP1(){
 /**
  * 発言を表示する
  *
- * @param {object}  msg - {token:"abcd", name:"foo"}
+ * @param {object}  msg - {token:"abcd", text:"foo",time:"12:34"}
  * @param {boolean} [is_me=false]
  * @return {void}
  */
@@ -259,27 +264,52 @@ function addMessage(msg, is_me=false){
   // 自分の発言
   else if( is_me ){
     li.classList.add("li-me");
+    // 仮想ツリー作成
+    const docFrag = document.createDocumentFragment();
+    // 時間を入れるspan要素を作成し仮想ツリーに追加
+    const timeSpan = document.createElement("span");
+    timeSpan.innerText = msg.time;
+    timeSpan.classList.add("time");
+    docFrag.appendChild(timeSpan);
+
+    // メッセージを入れるspan要素作成し仮想ツリーに追加
     const span = document.createElement("span");
     span.innerText = msg.text;
     span.classList.add("span-me");
-    li.appendChild(span)
+    docFrag.appendChild(span);
+
+    // 仮想ツリーを実ツリーに追加しレンダリング
+    li.appendChild(docFrag);
+
   }
   // それ以外の発言
   else{
     li.classList.add("li-member");
+    // 仮想ツリー作成
     const docFrag = document.createDocumentFragment();
+    // メンバーの名前を入れるspan作成し .member-name を追加し仮想ツリーに追加
     const memberNameSpan = document.createElement("span");
     memberNameSpan.classList.add("member-name");
     memberNameSpan.innerText = name;
     docFrag.appendChild(memberNameSpan);
     
+    // brを作成し仮想ツリーに追加
     const br = document.createElement("br");
     docFrag.appendChild(br);
     
+    // メッセージを入れるspanを作成し .span-member を追加し仮想ツリーに追加
     const span = document.createElement("span");
     span.classList.add("span-member");
     span.innerText = msg.text;
     docFrag.appendChild(span);
+
+    // 時間を入れるspan要素を作成し仮想ツリーに追加
+    const timeSpan = document.createElement("span");
+    timeSpan.innerText = msg.time;
+    timeSpan.classList.add("time");
+    docFrag.appendChild(timeSpan);
+
+    // 仮想ツリーを実ツリーに追加しレンダリング
     li.appendChild(docFrag);
     //通知
     if(Push.Permission.has()){
@@ -385,4 +415,16 @@ function windowScrollBottom(){
   var element = document.documentElement;
   var bottom = element.scrollHeight - element.clientHeight;
   window.scroll(0, bottom);
-}
+};
+
+// 現在の人数を変更する（画面右上）
+const memberCountChange = () => {
+  // MEMBERオブジェクトの長さを取得し埋め込む
+  const memberCount = Object.keys(MEMBER).length;
+  console.log(memberCount);
+  $("#member-count").innerText = memberCount;
+};
+
+window.addEventListener("beforeunload", function(eve){
+  socket.emit("quit", {token:IAM.token});
+}, false)
