@@ -44,7 +44,7 @@ let MEMBER_COUNT = 1;
  * "/"にアクセスがあったらindex.htmlを返却
  */
 app.get("/", (req, res)=>{
-  res.sendFile(DOCUMENT_ROOT + "/Browine.html");
+  res.sendFile(DOCUMENT_ROOT + "/BINE.html");
 });
 /**
  * その他のファイルへのアクセス
