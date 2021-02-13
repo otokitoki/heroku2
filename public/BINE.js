@@ -403,8 +403,7 @@ function windowScrollBottom() {
 // 現在の人数を変更する（画面右上）
 const memberCountChange = () => {
   // MEMBERオブジェクトの長さを取得し埋め込む
-  const memberCount = Object.keys(MEMBER).length;
-  console.log(memberCount);
+  const memberCount = Object.keys(MEMBER).lengt-1;
   $("#member-count").innerText = memberCount;
 };
 
