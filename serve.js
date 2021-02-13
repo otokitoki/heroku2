@@ -117,8 +117,13 @@ io.on("connection", (socket)=>{
     // トークンが正しければ
     //--------------------------
     let dt = new Date();
-    let dtHM = dt.toFormat("HH24:MI");
-    data.time = dtHM;
+    let dtH = parseInt(dt.toFormat("HH24"));
+    dtH += 9;
+    if(dtH + 9 > 24){
+      dtH -= 24;
+    };
+    let dtM = dt.toFormat("MI");
+    //data.time = dtHM;
     if( authToken(socket.id, data.token) ){
       // 本人に通知
       io.to(socket.id).emit("member-post", data);
