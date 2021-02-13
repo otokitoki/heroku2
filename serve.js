@@ -123,7 +123,8 @@ io.on("connection", (socket)=>{
       dtH -= 24;
     };
     let dtM = dt.toFormat("MI");
-    //data.time = dtHM;
+    let dtHM = dtH + ":" + dtM;
+    data.time = dtHM;
     if( authToken(socket.id, data.token) ){
       // 本人に通知
       io.to(socket.id).emit("member-post", data);
