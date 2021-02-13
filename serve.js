@@ -120,7 +120,7 @@ io.on("connection", (socket)=>{
     let dtH = parseInt(dt.toFormat("HH24"));
     dtH += 9;
     if(dtH + 9 > 24){
-      dtH -= 24;
+      dtH -= 9;
     };
     let dtM = dt.toFormat("MI");
     let dtHM = dtH + ":" + dtM;
